@@ -1,14 +1,14 @@
 {
   "name": "ally-gmaps-finder-backend",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "description": "Node server that looks in Google Maps API for an address and retrieves its coordinates, saving them along with the user information in MongoDB",
   "main": "index.js",
   "scripts": {
-    "test": "",
-    "start": "nodemon src index.js"
+    "test": "nodemon src/index.js",
+    "start": "node src/index.js"
   },
   "keywords": [
-    "node"
+    "node", "mongo", "google-maps", "express"
   ],
   "author": "Jose Guerrero",
   "license": "GPL-3.0",

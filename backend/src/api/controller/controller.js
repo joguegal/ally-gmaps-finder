@@ -1,4 +1,6 @@
 const request = require('request')
+const mongoose = require('mongoose')
+const User = mongoose.model('User')
 
 exports.getCoordinates = (req, res) => {
     const providedAddress = req.params.address
@@ -27,17 +29,16 @@ getAddressGMaps = (address, json) => {
 }
 
 exports.getUsers = (req, res) => {
-    res.send({
-        "name": "José Fernández Alameda",
-        "address": "Tegnérgatan 37, Stockholm",
-        "latitude": 59.338793699999997,
-        "longitude": 18.057603
-    })
+    User.find({}, (err, users) => {
+        if (err) res.status(404).json(err)
+        res.json(users)
+    }).select({ _id: 0 })
 }
 
 exports.saveUser = (req, res) => {
     const user = req.body
-    console.log(user)
-    res.send(user)
+    User.create(user, (err, docs) => {
+        if (err) res.status(500).json(err)
+        res.status(201).json(docs)
+    })
 }
-
