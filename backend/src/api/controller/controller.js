@@ -21,7 +21,23 @@ getAddressGMaps = (address, json) => {
             const numberStreet = body.results[0]['address_components'][0].long_name
             const street = body.results[0]['address_components'][1].long_name
             const city = body.results[0]['address_components'][3].long_name
-            json({ street: street, number: numberStreet, city: city, latitude: lat, longitude: lng})
+            json({ street: street, number: numberStreet, city: city, latitude: lat, longitude: lng })
         }
     })
 }
+
+exports.getUsers = (req, res) => {
+    res.send({
+        "name": "José Fernández Alameda",
+        "address": "Tegnérgatan 37, Stockholm",
+        "latitude": 59.338793699999997,
+        "longitude": 18.057603
+    })
+}
+
+exports.saveUser = (req, res) => {
+    const user = req.body
+    console.log(user)
+    res.send(user)
+}
+

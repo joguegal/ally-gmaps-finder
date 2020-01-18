@@ -3,4 +3,8 @@ module.exports = (server) => {
 
     server.route('/api/getAddress/:address')
           .get(controller.getCoordinates)
+    
+    server.route('/api/users')
+          .get(controller.getUsers)
+          .post(controller.saveUser)
 }
