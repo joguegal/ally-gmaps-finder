@@ -10,7 +10,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetch('api/users')
+        fetch('http://localhost:8080/api/users')
             .then(response => response.json())
             .then(data => this.setState({ users: data }))
     }
