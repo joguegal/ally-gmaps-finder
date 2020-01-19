@@ -11,7 +11,7 @@ mongoose.connect('mongodb://172.17.0.2/dbAddresses', { useNewUrlParser: true, us
 
 const routes = require('./api/routing/routes')
 routes(app)
-const port = process.env.PORT || 6000
+const port = process.env.PORT || 8080
 
 const server = app.listen(port, () => {
     const host = server.address().address

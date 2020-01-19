@@ -39,7 +39,7 @@ class Address extends Component {
     async handleSubmit(event) {
         event.preventDefault()
         //Not Working
-        fetch(`api/getAddress/${this.state.address}`)
+        fetch(`http://localhost:8080/api/getAddress/${this.state.address}`)
             .then(response => response.json())
             .then(data => {
                 this.setState({ address: data })
@@ -88,7 +88,7 @@ class Address extends Component {
             longitude: this.state.address.longitude
         }
 
-        fetch('api/users', {
+        fetch('http://localhost:8080/api/users', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
