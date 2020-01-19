@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './App.css'
 import { Container, ListGroup, ListGroupItem, Table } from 'reactstrap'
 import Address from './Address'
 import logo from './logo.svg'
@@ -28,16 +27,8 @@ class Home extends Component {
         return (
             <div>
                 <Container>
-                    <Table borderless>
-                        <tbody>
-                            <td>
-                                <img src={logo} alt='Ally logo' width='128' />
-                            </td>
-                            <td>
-                                <h4>User coordinates App</h4>
-                            </td>
-                        </tbody>
-                    </Table>
+                    <h2><img src={logo} alt='Ally logo' width='128' /> Google Maps Finder / Person Register</h2>
+                    <br/>
                     <Table borderless>
                         <Address />
                     </Table>
