@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import { Container, ListGroup, ListGroupItem, Table } from 'reactstrap'
 import Address from './Address'
+import logo from './logo.svg'
 class Home extends Component {
 
     constructor(props) {
@@ -17,14 +18,26 @@ class Home extends Component {
 
     render() {
         const { users } = this.state
-
-        const userList = users.map(user => {
-            return <ListGroupItem><b>{user.name}</b> {user.address} {user.latitude} {user.longitude}</ListGroupItem>
-        })
+        const userList = (users.length === 0) ?
+            <ListGroupItem><b>User list is empty!</b></ListGroupItem>
+            :
+            users.map(user => {
+                return <ListGroupItem><b>{user.name}</b> {user.address} {user.latitude} {user.longitude}</ListGroupItem>
+            })
 
         return (
             <div>
                 <Container>
+                    <Table borderless>
+                        <tbody>
+                            <td>
+                                <img src={logo} alt='Ally logo' width='128' />
+                            </td>
+                            <td>
+                                <h4>User coordinates App</h4>
+                            </td>
+                        </tbody>
+                    </Table>
                     <Table borderless>
                         <Address />
                     </Table>
@@ -32,7 +45,7 @@ class Home extends Component {
                     <br />
 
                     <h3>Users</h3>
-                    <ListGroup>{userList}</ListGroup>
+                    <ListGroup variant="flush">{userList}</ListGroup>
                 </Container>
             </div>
         )
